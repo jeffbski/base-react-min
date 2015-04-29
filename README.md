@@ -1,15 +1,15 @@
 # PROJECT_NAME
 
-This is a minimal React.js boilerplate with a build environment setup which you can fork and clone to easily setup your own projects.
+This is a minimal React.js boilerplate with an auto build environment setup which you can fork and clone to easily setup your own projects.
 
-TODO: Replace all this boilerplate with your project description
+TODO: Replace this boilerplate with your project description
 
 Features:
 
  - React.js JSX example which fetches from REST source and renders
  - simple build and auto rebuild (watch) using npm run scripts
  - browser-sync for auto reloading in browser on change
- - ES6/7 and JSX compiling with babeljs
+ - ES6/7 and JSX compiling to ES5 with babeljs
  - eslint for linting
  - browserify (w/babelify) for bundling javascript for the browser
  - watchify to automatically rebuild on changes
@@ -25,6 +25,7 @@ Structure:
  - public/index.html - main HTML
  - public/fake-api.json - mock REST api returning json data
  - src/browser.jsx - React.js JSX code which fetches REST data and renders into the main HTML
+ - src/util/polyfill.js - Import any core-js or other polyfills here
 
 ## Installation
 

@@ -1,5 +1,6 @@
 'use strict';
 
+import './util/polyfill'; // first import polyfills
 import React from 'react';
 import httpClient from 'axios';
 
