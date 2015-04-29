@@ -54,6 +54,7 @@
   },
   "dependencies": {
     "core-js": "^0.9.4",
+    "iso-http": "0.0.5",
     "react": "^0.13.2"
   },
   "keywords": []
