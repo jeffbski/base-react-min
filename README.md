@@ -1,4 +1,4 @@
-This is a **minimal React.js boilerplate with an auto build environment** which you can fork and clone to easily setup your own projects.
+This is a **minimal React.js boilerplate with an auto build environment** which you can fork and clone to easily setup your own projects. [git-clone-init](https://github.com/jeffbski/git-clone-init) makes this easy.
 
 TODO: Replace this boilerplate with your project description
 
