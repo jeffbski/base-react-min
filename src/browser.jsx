@@ -1,9 +1,7 @@
 'use strict';
 
 import React, { Component } from 'react';
-import http from 'iso-http';
-
-const mainContentDiv = document.querySelector('#appContainer');
+import httpClient from 'axios';
 
 class App extends Component {
   render() {
@@ -20,23 +18,26 @@ class App extends Component {
   }
 }
 
+const mainContentDiv = document.querySelector('#appContainer');
+
 function render(data) {
   React.render(<App items={data.items} />, mainContentDiv);
 }
 
-function fetchData(cb) {
-  http.request({ url: '/fake-api.json' }, resp => {
-    if (status > 399) { return cb(new Error(resp.text)); }
-    try {
-      const data = JSON.parse(resp.text);
-      return cb(null, data);
-    } catch (err) {
-      return cb(new Error(err));
-    }
-  });
+function renderError(err) {
+  const errMsg = (err.statusText) ?
+                 `Error: ${err.data} - ${err.statusText}` :
+                 err.toString();
+  React.render(<div>{errMsg}</div>, mainContentDiv);
 }
 
-fetchData(function (err, data) {
-  if (err) { return console.error(err); }
-  render(data);
-});
+function fetchData() {
+  return httpClient({ url: '/fake-api.json' });
+}
+
+fetchData()
+  .then(resp => render(resp.data))
+  .catch(err => {
+    console.error(err);
+    renderError(err);
+  });

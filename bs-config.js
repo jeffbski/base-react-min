@@ -4,7 +4,11 @@ module.exports = {
   port: 3005,
   // proxy: 'localhost:8005',
   // reloadDelay: 1000,
-  files: ['public/*.html', 'dist/bundle.js', 'dist/site.min.css'],
+  files: [
+    'public/*.html',
+    'public/*.json',
+    'dist/bundle.js',
+    'dist/site.min.css'],
   server: {
     baseDir: './public',
     routes: {
