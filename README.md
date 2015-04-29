@@ -26,6 +26,9 @@ Structure:
  - public/fake-api.json - mock REST api returning json data
  - src/browser.jsx - React.js JSX code which fetches REST data and renders into the main HTML
  - src/util/polyfill.js - Import any core-js or other polyfills here
+ - assets/site.less - CSS styles used by site, edit or import into
+ - dist/ - contains compiled and minified css and js
+
 
 ## Installation
 

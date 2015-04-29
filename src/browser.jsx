@@ -19,7 +19,7 @@ class App extends React.Component {
           { items.map(item =>
             <li key={item.id}>{item.name}</li>) }
         </ul>
-        <div className="devHelp">(from src/browser.jsx)</div>
+        <div className="devHelp">(REST data fetched and rendered in src/browser.jsx)</div>
       </div>
     );
   }
