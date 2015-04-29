@@ -42,6 +42,7 @@ TODO: update with your usage
 Primary use
 ```bash
 node run watch # build and watch, auto recompile and load changes
+# use control-c to exit the autobuild watch
 ```
 
 Build only
