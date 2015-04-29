@@ -42,7 +42,7 @@
     "autoprefixer": "^5.1.0",
     "babel-eslint": "^3.0.1",
     "babelify": "^6.0.2",
-    "browser-sync": "^2.6.5",
+    "browser-sync": "^2.6.9",
     "browserify": "^9.0.3",
     "clean-css": "^3.2.6",
     "concurrently": "^0.0.5",
