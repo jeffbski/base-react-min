@@ -1,6 +1,6 @@
 'use strict';
 
-import React, { Component } from 'react';
+import React from 'react';
 import httpClient from 'axios';
 
 /*
@@ -9,7 +9,7 @@ import httpClient from 'axios';
   renders the error message if one occurs.
  */
 
-class App extends Component {
+class App extends React.Component {
   render() {
     const items = this.props.items;
     return (
