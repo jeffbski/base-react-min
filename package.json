@@ -1,0 +1,60 @@
+{
+  "name": "PROJECT_NAME",
+  "description": "",
+  "version": "0.0.1",
+  "author": "Jeff Barczewski <info@codewinds.com>",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/jeffbski/PROJECT_NAME.git"
+  },
+  "bugs": {
+    "url": "http://github.com/jeffbski/PROJECT_NAME/issues"
+  },
+  "license": "MIT",
+  "browser": "src/browser.jsx",
+  "browserify": {
+    "transform": [
+      "babelify"
+    ]
+  },
+  "scripts": {
+    "create-dirs": "mkdir -p dist",
+    "build": "concurrent -p command 'npm run build-js' 'npm run build-css'",
+    "build-css": "lessc assets/site.less | autoprefixer -b 'last 2 versions, > 5%' | tee dist/site.css | cleancss -o dist/site.min.css",
+    "build-js": "browserify . -d --extension=.jsx | tee dist/bundle.js | uglifyjs - -c warnings=false -m | tee dist/bundle.min.js | gzip > dist/bundle.min.js.gz",
+    "lint": "eslint src",
+    "min-js": "cat dist/bundle.js | uglifyjs - -c warnings=false -m | tee dist/bundle.min.js | gzip > dist/bundle.min.js.gz",
+    "prebuild": "rm -rf dist/* && npm run create-dirs",
+    "postbuild": "echo \"Finished NODE_ENV=${NODE_ENV}\"",
+    "prepublish": "npm run prod-build",
+    "prewatch": "npm run create-dirs",
+    "prod-build": "NODE_ENV=production npm run build",
+    "watch": "concurrent -p command 'npm run watch-js' 'npm run watch-min-js' 'npm run watch-css' 'npm run watch-browser'",
+    "watch-browser": "sleep 5 && browser-sync start --config bs-config.js",
+    "watch-css": "npm run build-css && onchange assets/** -- npm run build-css",
+    "watch-js": "watchify src/browser.jsx -d --extension=.jsx -v -o dist/bundle.js",
+    "watch-min-js": "onchange dist/bundle.js -- npm run min-js"
+  },
+  "engines": {
+    "node": ">=0.10"
+  },
+  "devDependencies": {
+    "autoprefixer": "^5.1.0",
+    "babel-eslint": "^3.0.1",
+    "babelify": "^6.0.2",
+    "browser-sync": "^2.6.5",
+    "browserify": "^9.0.3",
+    "clean-css": "^3.2.6",
+    "concurrently": "^0.0.5",
+    "eslint": "^0.20.0",
+    "less": "^2.4.0",
+    "onchange": "^1.0.0",
+    "uglify-js": "^2.4.16",
+    "watchify": "^3.2.0"
+  },
+  "dependencies": {
+    "core-js": "^0.9.4",
+    "react": "^0.13.2"
+  },
+  "keywords": []
+}

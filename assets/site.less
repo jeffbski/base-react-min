@@ -1,0 +1,43 @@
+// Constants
+@mainFontSize: 24px;
+@smallFontSize: 18px;
+@extraSmallFontSize: 14px;
+
+body {
+  font-family: Verdana, Helvetica, Arial, sans-serif;
+  font-size: @mainFontSize;
+  background-color: beige;
+  margin: 40px;
+}
+
+input, textarea, button {
+  font-size: @smallFontSize;
+  border-radius: 6px;
+}
+
+a {
+  text-decoration: none;
+  padding: 0 2px;
+}
+a:hover { background-color: lightblue; }
+
+.menu {
+  padding-left: 0;
+  display: flex;
+  flex-flow: row wrap;
+  li {
+    font-size: @smallFontSize;
+    margin-right: 10px;
+    list-style: none;
+  }
+  .active {
+    color: green;
+  }
+}
+
+.appFooter { margin-top: 40px; }
+
+.devHelp {
+  color: grey;
+  font-size: @extraSmallFontSize;
+}
