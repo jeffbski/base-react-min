@@ -3,6 +3,12 @@
 import React, { Component } from 'react';
 import httpClient from 'axios';
 
+/*
+  Example which fetches a list of items from a REST api
+  and renders it to the screen. Also logs and renders
+  renders the error message if one occurs.
+ */
+
 class App extends Component {
   render() {
     const items = this.props.items;
