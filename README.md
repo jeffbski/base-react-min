@@ -1,23 +1,23 @@
 # PROJECT_NAME
 
-This is a minimal React.js boilerplate with an auto build environment setup which you can fork and clone to easily setup your own projects.
+This is a **minimal React.js boilerplate with an auto build environment** which you can fork and clone to easily setup your own projects.
 
 TODO: Replace this boilerplate with your project description
 
 Features:
 
- - React.js JSX example which fetches from REST source and renders
- - simple build and auto rebuild (watch) using npm run scripts
- - browser-sync for auto reloading in browser on change
- - ES6/7 and JSX compiling to ES5 with babeljs
- - eslint for linting
- - browserify (w/babelify) for bundling javascript for the browser
- - watchify to automatically rebuild on changes
- - uglify for js minification
- - less CSS style compiler
- - autoprefixer for automatically adding css prefixes
- - cleancss for css minification
- - axios for promise based HTTP client
+ - **React.js JSX example which fetches from REST source and renders**
+ - **simple build and auto rebuild** (watch) using npm run scripts
+ - **browser-sync** for auto reloading in browser on change
+ - **ES6/7 and JSX compiling** to ES5 with **babeljs**
+ - **eslint** for linting
+ - **browserify** (w/babelify) for bundling javascript for the browser
+ - **watchify** to automatically rebuild on changes
+ - **uglify** for js minification
+ - **less** CSS style compiler
+ - **autoprefixer** for automatically adding css prefixes
+ - **cleancss** for css minification
+ - **axios** for promise based HTTP client
 
 Structure:
 
@@ -39,7 +39,7 @@ npm install ## install dependent node modules
 
 TODO: update with your usage
 
-Primary use
+Primary use - auto build and reload browser
 ```bash
 node run watch # build and watch, auto recompile and load changes
 # use control-c to exit the autobuild watch
