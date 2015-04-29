@@ -25,7 +25,12 @@ Structure:
  - src/browser.jsx - React.js JSX code which fetches REST data and renders into the main HTML
  - src/util/polyfill.js - Import any core-js or other polyfills here
  - assets/site.less - CSS styles used by site, edit or import into
+ - bs-config.js - browser-sync config, set browser to launch
  - dist/ - contains compiled and minified css and js
+
+Notes:
+
+ - My default browser for browser-sync is `Google Chrome Canary`, if you want to use a different browser like `Google Chrome` or `Mozilla Firefox` edit `bs-config.js`
 
 
 ## Installation
