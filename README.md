@@ -1,5 +1,3 @@
-# PROJECT_NAME
-
 This is a **minimal React.js boilerplate with an auto build environment** which you can fork and clone to easily setup your own projects.
 
 TODO: Replace this boilerplate with your project description
