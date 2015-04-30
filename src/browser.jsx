@@ -25,17 +25,17 @@ class App extends React.Component {
   }
 }
 
-const mainContentDiv = document.querySelector('#appContainer');
+const appContainerDiv = document.querySelector('#appContainer');
 
 function render(data) {
-  React.render(<App items={data.items} />, mainContentDiv);
+  React.render(<App items={data.items} />, appContainerDiv);
 }
 
 function renderError(err) {
   const errMsg = (err.statusText) ?
                  `Error: ${err.data} - ${err.statusText}` :
                  err.toString();
-  React.render(<div>{errMsg}</div>, mainContentDiv);
+  React.render(<div>{errMsg}</div>, appContainerDiv);
 }
 
 function fetchData() {
