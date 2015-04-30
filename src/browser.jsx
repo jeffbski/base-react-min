@@ -42,9 +42,13 @@ function fetchData() {
   return httpClient({ url: '/fake-api.json' });
 }
 
-fetchData()
-  .then(resp => render(resp.data))
-  .catch(err => {
-    console.error(err);
-    renderError(err);
-  });
+function fetchDataAndRender() {
+  fetchData()
+    .then(resp => render(resp.data))
+    .catch(err => {
+      console.error(err);
+      renderError(err);
+    });
+}
+
+fetchDataAndRender();
