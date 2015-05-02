@@ -23,17 +23,15 @@
     "build-css": "lessc assets/site.less | autoprefixer -b 'last 2 versions, > 5%' | tee dist/site.css | cleancss -o dist/site.min.css",
     "build-js": "browserify . -d --extension=.jsx | tee dist/bundle.js | uglifyjs - -c warnings=false -m | tee dist/bundle.min.js | gzip > dist/bundle.min.js.gz",
     "lint": "eslint src",
-    "min-js": "cat dist/bundle.js | uglifyjs - -c warnings=false -m | tee dist/bundle.min.js | gzip > dist/bundle.min.js.gz",
     "prebuild": "rm -rf dist/* && npm run create-dirs",
     "postbuild": "echo \"Finished NODE_ENV=${NODE_ENV}\"",
     "prepublish": "npm run prod-build",
     "prewatch": "npm run create-dirs",
     "prod-build": "NODE_ENV=production npm run build",
-    "watch": "concurrent -p command 'npm run watch-js' 'npm run watch-min-js' 'npm run watch-css' 'npm run watch-browser'",
+    "watch": "concurrent -p command 'npm run watch-js' 'npm run watch-css' 'npm run watch-browser'",
     "watch-browser": "sleep 5 && browser-sync start --config bs-config.js",
     "watch-css": "npm run build-css && onchange assets/** -- npm run build-css",
-    "watch-js": "watchify src/browser.jsx -d --extension=.jsx -v -o dist/bundle.js",
-    "watch-min-js": "onchange dist/bundle.js -- npm run min-js"
+    "watch-js": "watchify src/browser.jsx -d --extension=.jsx -v -o 'tee dist/bundle.js | uglifyjs - -c warnings=false -m | tee dist/bundle.min.js | gzip > dist/bundle.min.js.gz'"
   },
   "engines": {
     "node": ">=0.10"
