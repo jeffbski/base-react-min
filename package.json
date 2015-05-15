@@ -39,12 +39,12 @@
   "devDependencies": {
     "autoprefixer": "^5.1.0",
     "babel-eslint": "^3.0.1",
-    "babelify": "^6.0.2",
+    "babelify": "^6.1.0",
     "browser-sync": "^2.6.9",
-    "browserify": "^9.0.3",
-    "clean-css": "^3.2.6",
+    "browserify": "^10.2.0",
+    "clean-css": "^3.2.10",
     "concurrently": "^0.0.5",
-    "eslint": "^0.20.0",
+    "eslint": "^0.21.0",
     "less": "^2.4.0",
     "onchange": "^1.0.0",
     "uglify-js": "^2.4.21",
@@ -52,8 +52,8 @@
   },
   "dependencies": {
     "axios": "^0.5.4",
-    "core-js": "^0.9.4",
-    "react": "^0.13.2"
+    "core-js": "^0.9.9",
+    "react": "^0.13.3"
   },
   "keywords": []
 }
