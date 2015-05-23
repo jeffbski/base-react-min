@@ -21,6 +21,8 @@ Features:
  - **cleancss** for css minification
  - **axios** for promise based HTTP client
 
+Note: **Windows users** - use https://github.com/jeffbski/base-react-min-win.git instead
+
 Structure:
 
  - package.json - dependencies and build commands
