@@ -1,7 +1,7 @@
 {
   "name": "PROJECT_NAME",
   "description": "",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": "Jeff Barczewski <info@codewinds.com>",
   "repository": {
     "type": "git",
