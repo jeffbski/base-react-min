@@ -20,18 +20,18 @@
   "scripts": {
     "create-dirs": "mkdirp dist",
     "build": "concurrent -p command \"npm run build-js\" \"npm run build-css\"",
-    "build-css": "lessc assets/site.less | postcss -c postcss.json | ntee dist/site.css | cleancss -o dist/site.min.css",
-    "build-js": "browserify . -d --extension=.jsx | ntee dist/bundle.js | uglifyjs - -c warnings=false -m | ntee dist/bundle.min.js | gzip > dist/bundle.min.js.gz",
+    "build-css": "lessc assets/site.less | postcss -c postcss.json | ntee dist/site.css | cleancss | ntee dist/site.min.css | ngzip > dist/site.min.css.gz",
+    "build-js": "browserify . -d --extension=.jsx | ntee dist/bundle.js | uglifyjs - -c warnings=false -m | ntee dist/bundle.min.js | ngzip > dist/bundle.min.js.gz",
     "lint": "eslint src",
     "prebuild": "rimraf dist/* && npm run create-dirs",
     "postbuild": "echo \"Finished NODE_ENV=${NODE_ENV}\"",
     "prepublish": "npm run prod-build",
     "prewatch": "npm run create-dirs",
-    "prod-build": "NODE_ENV=production npm run build",
+    "prod-build": "npm run build --production",
     "watch": "concurrent -p command \"npm run watch-js\" \"npm run watch-css\" \"npm run watch-browser\"",
-    "watch-browser": "sleep 5 && browser-sync start --config bs-config.js",
-    "watch-css": "npm run build-css && onchange assets/** -- npm run build-css",
-    "watch-js": "watchify src/browser.jsx -d --extension=.jsx -v -o \"ntee dist/bundle.js | uglifyjs - -c warnings=false -m | ntee dist/bundle.min.js | gzip > dist/bundle.min.js.gz\""
+    "watch-browser": "wait-on dist/bundle.js && browser-sync start --config bs-config.js",
+    "watch-css": "npm run build-css && sane \"npm run build-css\" assets",
+    "watch-js": "watchify src/browser.jsx -d --extension=.jsx -v -o \"ntee dist/bundle.js | uglifyjs - -c warnings=false -m | ntee dist/bundle.min.js | ngzip > dist/bundle.min.js.gz\""
   },
   "engines": {
     "node": ">=0.10"
@@ -47,11 +47,13 @@
     "eslint": "^1.0.0-rc-1",
     "less": "^2.4.0",
     "mkdirp": "^0.5.1",
+    "ngzip": "^1.0.0",
     "ntee": "^1.1.4",
-    "onchange": "^1.0.0",
     "postcss-cli": "^1.4.0",
     "rimraf": "^2.4.1",
+    "sane": "^1.1.3",
     "uglify-js": "^2.4.21",
+    "wait-on": "^1.0.0",
     "watchify": "^3.2.0"
   },
   "dependencies": {
