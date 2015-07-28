@@ -24,14 +24,16 @@
     "build-js": "browserify . -d --extension=.jsx | ntee dist/bundle.js | uglifyjs - -c warnings=false -m | ntee dist/bundle.min.js | ngzip > dist/bundle.min.js.gz",
     "lint": "eslint src",
     "prebuild": "rimraf dist/* && npm run create-dirs",
-    "postbuild": "echo \"Finished NODE_ENV=${NODE_ENV}\"",
+    "postbuild": "echo \"Finished\"",
     "prepublish": "npm run prod-build",
     "prewatch": "npm run create-dirs",
+    "prewatch-js": "rimraf dist/bundle.min.js dist/bundle.min.js.gz",
     "prod-build": "npm run build --production",
     "watch": "concurrent -p command \"npm run watch-js\" \"npm run watch-css\" \"npm run watch-browser\"",
     "watch-browser": "wait-on dist/bundle.js && browser-sync start --config bs-config.js",
     "watch-css": "npm run build-css && sane \"npm run build-css\" assets",
-    "watch-js": "watchify src/browser.jsx -d --extension=.jsx -v -o \"ntee dist/bundle.js | uglifyjs - -c warnings=false -m | ntee dist/bundle.min.js | ngzip > dist/bundle.min.js.gz\""
+    "watch-js": "watchify src/browser.jsx -d --extension=.jsx -v -o dist/bundle.js",
+    "watch-js-full": "watchify src/browser.jsx -d --extension=.jsx -v -o \"ntee dist/bundle.js | uglifyjs - -c warnings=false -m | ntee dist/bundle.min.js | ngzip > dist/bundle.min.js.gz\""
   },
   "engines": {
     "node": ">=0.10"
