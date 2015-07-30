@@ -31,7 +31,7 @@
     "prod-build": "npm run build --production",
     "watch": "concurrent -p command \"npm run watch-js\" \"npm run watch-css\" \"npm run watch-browser\"",
     "watch-browser": "wait-on dist/bundle.js && browser-sync start --config bs-config.js",
-    "watch-css": "npm run build-css && sane \"npm run build-css\" assets",
+    "watch-css": "npm run build-css && chokidar \"assets/**/*\" -c \"npm run build-css\"",
     "watch-js": "watchify src/browser.jsx -d --extension=.jsx -v -o dist/bundle.js"
   },
   "engines": {
@@ -43,6 +43,7 @@
     "babelify": "^6.1.0",
     "browser-sync": "^2.6.9",
     "browserify": "^11.0.0",
+    "chokidar-cli": "^1.0.1",
     "clean-css": "^3.2.10",
     "concurrently": "^0.1.1",
     "eslint": "^0.24.1",
@@ -53,7 +54,6 @@
     "ntee": "^1.1.4",
     "postcss-cli": "^1.4.0",
     "rimraf": "^2.4.1",
-    "sane": "^1.1.3",
     "uglify-js": "^2.4.21",
     "wait-on": "^1.1.1",
     "watchify": "^3.3.1"
