@@ -47,6 +47,7 @@
     "clean-css": "^3.2.10",
     "concurrently": "^0.1.1",
     "eslint": "^1.0.0-rc-1",
+    "eslint-plugin-react": "^3.1.0",
     "less": "^2.4.0",
     "mkdirp": "^0.5.1",
     "ngzip": "^1.0.0",
