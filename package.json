@@ -19,7 +19,7 @@
   },
   "scripts": {
     "create-dirs": "mkdirp dist",
-    "build": "concurrent -p command \"npm run build-js\" \"npm run build-css\"",
+    "build": "parallelshell \"npm run build-js\" \"npm run build-css\"",
     "build-css": "lessc assets/site.less | postcss -c postcss.json | ntee dist/site.css | cleancss | ntee dist/site.min.css | ngzip > dist/site.min.css.gz",
     "build-js": "browserify . -d --extension=.jsx | ntee dist/bundle.js | uglifyjs - -c warnings=false -m | ntee dist/bundle.min.js | ngzip > dist/bundle.min.js.gz",
     "lint": "eslint src",
@@ -29,39 +29,54 @@
     "prewatch": "npm run create-dirs",
     "prewatch-js": "rimraf dist/bundle.min.js dist/bundle.min.js.gz",
     "prod-build": "npm run build --production",
-    "watch": "concurrent -p command \"npm run watch-js\" \"npm run watch-css\" \"npm run watch-browser\"",
+    "test": "karma start --single-run",
+    "watch": "parallelshell \"npm run watch-js\" \"npm run watch-css\" \"npm run watch-browser\" \"npm run watch-karma\"",
     "watch-browser": "wait-on dist/bundle.js && browser-sync start --config bs-config.js",
     "watch-css": "npm run build-css && chokidar \"assets/**/*\" -c \"npm run build-css\"",
-    "watch-js": "watchify src/browser.jsx -d --extension=.jsx -v -o dist/bundle.js"
+    "watch-js": "watchify src/browser.jsx -d --extension=.jsx -v -o dist/bundle.js",
+    "watch-karma": "karma start"
   },
   "engines": {
     "node": ">=0.10"
   },
   "devDependencies": {
     "autoprefixer": "^5.2.0",
+    "babel": "^5.8.21",
     "babel-eslint": "^4.0.5",
     "babelify": "^6.1.0",
     "browser-sync": "^2.6.9",
     "browserify": "^11.0.0",
     "chokidar-cli": "^1.0.1",
     "clean-css": "^3.2.10",
-    "concurrently": "^0.1.1",
     "eslint": "^0.24.1",
     "eslint-plugin-react": "^3.1.0",
+    "expect": "^1.9.0",
+    "karma": "^0.13.9",
+    "karma-browserify": "^4.3.0",
+    "karma-chrome-launcher": "^0.2.0",
+    "karma-mocha": "^0.2.0",
+    "karma-mocha-reporter": "^1.1.1",
+    "karma-phantomjs-launcher": "^0.2.1",
+    "karma-phantomjs-shim": "^1.1.1",
     "less": "^2.4.0",
     "mkdirp": "^0.5.1",
+    "mocha": "^2.2.5",
     "ngzip": "^1.0.0",
     "ntee": "^1.1.4",
+    "parallelshell": "^2.0.0",
+    "phantomjs": "^1.9.18",
     "postcss-cli": "^1.4.0",
+    "react-addons-test-utils": "^0.14.0-rc1",
     "rimraf": "^2.4.1",
     "uglify-js": "^2.4.21",
-    "wait-on": "^1.1.1",
+    "wait-on": "^1.2.0",
     "watchify": "^3.3.1"
   },
   "dependencies": {
     "axios": "^0.5.4",
     "core-js": "^1.0.0",
-    "react": "^0.13.3"
+    "react": "^0.14.0-rc1",
+    "react-dom": "^0.14.0-rc1"
   },
   "keywords": []
 }
