@@ -1,6 +1,6 @@
 This is a **minimal React.js boilerplate with an auto build environment** which you can fork and clone to easily setup your own projects.
 
-Tip: Using [git-clone-init](https://github.com/jeffbski/git-clone-init) makes this very simple.
+Tip: Using [git-clone-init](https://github.com/jeffbski/git-clone-init) makes this very simple. (non-windows users)
 
 `git-clone-init https://github.com/jeffbski/base-react-min.git myProjectName`
 
@@ -19,9 +19,11 @@ Features:
  - **less** CSS style compiler
  - **autoprefixer** for automatically adding css prefixes
  - **cleancss** for css minification
+ - **karma** for js unit testing in browsers or phantomjs
+ - **phantomjs** for headless testing in browser
  - **axios** for promise based HTTP client
+ - **cross platform** - runs on Mac OS X, linux, unix, windows
 
-Note: **Windows users** - use https://github.com/jeffbski/base-react-min-win.git instead
 
 Structure:
 
@@ -31,7 +33,10 @@ Structure:
  - src/browser.jsx - React.js JSX code which fetches REST data and renders into the main HTML
  - src/util/polyfill.js - Import any core-js or other polyfills here
  - assets/site.less - CSS styles used by site, edit or import into
+ - .babelrc - babel configuration
  - bs-config.js - browser-sync config, set browser to launch
+ - karma.conf.js - karma test configuration
+ - postcss.json - postcss config controls autoprefixer
  - dist/ - contains compiled and minified css and js
 
 Notes:
