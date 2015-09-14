@@ -40,7 +40,7 @@
     "node": ">=0.10"
   },
   "devDependencies": {
-    "autoprefixer": "^5.2.0",
+    "autoprefixer": "^6.0.2",
     "babel": "^5.8.21",
     "babel-eslint": "^4.0.5",
     "babelify": "^6.1.0",
@@ -48,7 +48,7 @@
     "browserify": "^11.0.0",
     "chokidar-cli": "^1.0.1",
     "clean-css": "^3.2.10",
-    "eslint": "^0.24.1",
+    "eslint": "^1.4.1",
     "eslint-plugin-react": "^3.1.0",
     "expect": "^1.9.0",
     "karma": "^0.13.9",
@@ -65,7 +65,7 @@
     "ntee": "^1.1.4",
     "parallelshell": "^2.0.0",
     "phantomjs": "^1.9.18",
-    "postcss-cli": "^1.4.0",
+    "postcss-cli": "^2.1.0",
     "react-addons-test-utils": "^0.14.0-rc1",
     "rimraf": "^2.4.1",
     "uglify-js": "^2.4.21",
