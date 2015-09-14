@@ -30,8 +30,11 @@ Structure:
  - package.json - dependencies and build commands
  - public/index.html - main HTML
  - public/fake-api.json - mock REST api returning json data
- - src/browser.jsx - React.js JSX code which fetches REST data and renders into the main HTML
+ - src/browser.jsx - React.js JSX code which fetches REST data and renders App component into the main HTML
+ - src/app.jsx - Main app component used to display data
+ - src/items.kmocha.jsx - sample karma mocha test for items
  - src/util/polyfill.js - Import any core-js or other polyfills here
+ - src/util/karma-setup.js - common karma setup
  - assets/site.less - CSS styles used by site, edit or import into
  - .babelrc - babel configuration
  - bs-config.js - browser-sync config, set browser to launch

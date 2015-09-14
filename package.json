@@ -22,7 +22,7 @@
     "build": "parallelshell \"npm run build-js\" \"npm run build-css\"",
     "build-css": "lessc assets/site.less | postcss -c postcss.json | ntee dist/site.css | cleancss | ntee dist/site.min.css | ngzip > dist/site.min.css.gz",
     "build-js": "browserify . -d --extension=.jsx | ntee dist/bundle.js | uglifyjs - -c warnings=false -m | ntee dist/bundle.min.js | ngzip > dist/bundle.min.js.gz",
-    "lint": "eslint src",
+    "lint": "eslint --ext .js --ext .jsx src",
     "prebuild": "rimraf dist/* && npm run create-dirs",
     "postbuild": "echo \"Finished\"",
     "prepublish": "npm run prod-build",
