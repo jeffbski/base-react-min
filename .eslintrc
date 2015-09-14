@@ -27,6 +27,9 @@
     "no-multi-spaces": [0],
     "no-shadow": [0],
     "no-unused-vars": [1],
-    "no-use-before-define": [2, "nofunc"]
+    "no-use-before-define": [2, "nofunc"],
+    "react/jsx-no-undef": 1,
+    "react/jsx-uses-react": 1,
+    "react/jsx-uses-vars": 1
   }
 }
