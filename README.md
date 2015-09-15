@@ -35,7 +35,7 @@ Structure:
  - src/items.kmocha.jsx - sample karma mocha test for items
  - src/util/polyfill.js - Import any core-js or other polyfills here
  - src/util/karma-setup.js - common karma setup
- - assets/site.less - CSS styles used by site, edit or import into
+ - style/site.less - CSS styles used by site, edit or import into
  - .babelrc - babel configuration
  - bs-config.js - browser-sync config, set browser to launch
  - karma.conf.js - karma test configuration
@@ -44,7 +44,7 @@ Structure:
 
 Notes:
 
- - My default browser for browser-sync is `Google Chrome Canary`, if you want to use a different browser like `Google Chrome` or `Mozilla Firefox` edit `bs-config.js`
+ - My default browser for browser-sync is `Google Chrome`, if you want to use a different browser like `Google Chrome Canary` or `Mozilla Firefox` edit `bs-config.js`
 
 
 ## Installation
@@ -63,11 +63,19 @@ Primary use - auto build and reload browser
 ```bash
 npm run watch # build and watch, auto recompile and load changes
 # use control-c to exit the autobuild watch
+
+# start is also aliased to run watch
+npm start # executes npm run watch
 ```
 
 Build only
 ```bash
 npm run build # build only
+```
+
+Single run of tests
+```bash
+npm test
 ```
 
 Build for Production

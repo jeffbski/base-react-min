@@ -20,7 +20,7 @@
   "scripts": {
     "create-dirs": "mkdirp dist",
     "build": "parallelshell \"npm run build-js\" \"npm run build-css\"",
-    "build-css": "lessc assets/site.less | postcss -c postcss.json | ntee dist/site.css | cleancss | ntee dist/site.min.css | ngzip > dist/site.min.css.gz",
+    "build-css": "lessc style/site.less | postcss -c postcss.json | ntee dist/site.css | cleancss | ntee dist/site.min.css | ngzip > dist/site.min.css.gz",
     "build-js": "browserify . -d --extension=.jsx | ntee dist/bundle.js | uglifyjs - -c warnings=false -m | ntee dist/bundle.min.js | ngzip > dist/bundle.min.js.gz",
     "lint": "eslint --ext .js --ext .jsx src",
     "prebuild": "rimraf dist/* && npm run create-dirs",
@@ -29,10 +29,11 @@
     "prewatch": "npm run create-dirs",
     "prewatch-js": "rimraf dist/bundle.min.js dist/bundle.min.js.gz",
     "prod-build": "npm run build --production",
+    "start": "npm run watch",
     "test": "karma start --single-run",
     "watch": "parallelshell \"npm run watch-js\" \"npm run watch-css\" \"npm run watch-browser\" \"npm run watch-karma\"",
     "watch-browser": "wait-on dist/bundle.js && browser-sync start --config bs-config.js",
-    "watch-css": "npm run build-css && chokidar \"assets/**/*\" -c \"npm run build-css\"",
+    "watch-css": "npm run build-css && chokidar \"style/**/*\" -c \"npm run build-css\"",
     "watch-js": "watchify src/browser.jsx -d --extension=.jsx -v -o dist/bundle.js",
     "watch-karma": "karma start"
   },
