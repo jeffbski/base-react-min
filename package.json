@@ -76,8 +76,8 @@
   "dependencies": {
     "axios": "^0.5.4",
     "core-js": "^1.0.0",
-    "react": "^0.14.0-rc1",
-    "react-dom": "^0.14.0-rc1"
+    "react": "^0.14.3",
+    "react-dom": "^0.14.3"
   },
   "keywords": []
 }
