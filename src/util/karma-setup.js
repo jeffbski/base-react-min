@@ -1,14 +1,7 @@
 'use strict';
 
 import './polyfill';
-import expect from 'expect';
-import React from 'react';
-import ReactDOM from 'react-dom';
-import TestUtils from 'react-addons-test-utils';
-
-export default {
-  expect,
-  React,
-  ReactDOM,
-  TestUtils
-};
+export { default as expect } from 'expect';
+export { default as React } from 'react';
+export { default as ReactDOM } from 'react-dom';
+export { default as TestUtils } from 'react-addons-test-utils';
