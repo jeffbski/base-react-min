@@ -1,5 +1,4 @@
 // Karma configuration
-// Generated on Tue Aug 25 2015 19:01:57 GMT-0500 (CDT)
 
 module.exports = function(config) {
   config.set({
@@ -10,8 +9,7 @@ module.exports = function(config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['mocha', 'browserify', 'phantomjs-shim'],
-
+    frameworks: ['mocha', 'phantomjs-shim'],
 
     // list of files / patterns to load in the browser
     files: [
@@ -28,13 +26,30 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'src/**/*.kmocha.js*': [ 'browserify' ]
+      'src/**/*.kmocha.js*': [ 'webpack' ]
     },
 
     browserify: {
       debug: true,
       // transform: ['babelify'], // use package.json browserify field
       extensions: ['.js', '.jsx']
+    },
+
+    webpack: {
+      devtool: 'inline-source-map',
+      module: {
+        loaders: [
+          { test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel' },
+          { test: /\.json$/, loader: 'json-loader' }
+        ]
+      },
+      resolve: {
+        extensions: ['', '.json', '.js', '.jsx']
+      }
+    },
+
+    webpackServer: {
+      noInfo: true
     },
 
     // test results reporter to use
