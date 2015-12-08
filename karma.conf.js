@@ -29,12 +29,6 @@ module.exports = function(config) {
       'src/**/*.kmocha.js*': [ 'webpack' ]
     },
 
-    browserify: {
-      debug: true,
-      // transform: ['babelify'], // use package.json browserify field
-      extensions: ['.js', '.jsx']
-    },
-
     webpack: {
       devtool: 'inline-source-map',
       module: {
