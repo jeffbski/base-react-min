@@ -1,10 +1,8 @@
-'use strict';
+import React, { Component } from 'react';
 
-import React from 'react';
-
-class App extends React.Component {
+class App extends Component {
   render() {
-    const items = this.props.items;
+    const { items } = this.props;
     return (
       <div>
         <ul className="items">

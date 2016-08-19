@@ -12,7 +12,7 @@ module.exports = {
   files: [
     'public/*.html',
     'public/*.json',
-    'dist/bundle.js',
+    'dist/main.js',
     'dist/site.min.css'],
   server: {
     baseDir: './public',

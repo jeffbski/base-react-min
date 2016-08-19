@@ -1,6 +1,6 @@
 // Karma configuration
 
-module.exports = function(config) {
+module.exports = function karmaConfig(config) {
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
@@ -26,8 +26,10 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'src/**/*.kmocha.js*': [ 'webpack' ]
+      'src/**/*.kmocha.js*': ['webpack']
     },
+
+    quiet: true,
 
     webpack: {
       devtool: 'inline-source-map',
@@ -42,7 +44,8 @@ module.exports = function(config) {
       }
     },
 
-    webpackServer: {
+    webpackMiddleware: {
+      stats: 'errors-only',
       noInfo: true
     },
 
@@ -81,5 +84,5 @@ module.exports = function(config) {
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
     singleRun: false
-  })
-}
+  });
+};

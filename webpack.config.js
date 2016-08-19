@@ -1,10 +1,16 @@
 'use strict';
 
-const webpack = require('webpack');
+var webpack = require('webpack');
 
-module.exports = {
+var env = process.env.NODE_ENV;
+var config = {
+  devServer: {
+    stats: {
+      chunks: false
+    }
+  },
   entry: {
-    bundle: ['./src/browser.jsx']
+    main: ['./src/browser.jsx']
   },
   output: {
     path: __dirname + '/dist',
@@ -16,16 +22,16 @@ module.exports = {
   module: {
     loaders: [
       {
-        // need to babelify joi, isemail, hoek, and topo's lib
-        test: /\/node_modules\/(joi\/lib\/|isemail\/lib\/|hoek\/lib\/|topo\/lib\/)/,
-        loader: 'babel'
-      },
-      {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loader: 'babel'
+        loaders: ['babel-loader']
       },
-      { test: /\.json$/, loader: 'json-loader' }
+      { test: /\.json$/, loaders: ['json-loader'] },
+      {
+        // need to babelify joi, isemail, hoek, and topo's lib
+        test: /\/node_modules\/(joi\/lib\/|isemail\/lib\/|hoek\/lib\/|topo\/lib\/)/,
+        loaders: ['babel-loader']
+      },
     ]
   },
   node: {
@@ -37,7 +43,26 @@ module.exports = {
     extensions: ['', '.json', '.js', '.jsx']
   },
   plugins: [
+    new webpack.optimize.OccurrenceOrderPlugin(),
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify(env)
+    }),
     // english locale is included, exclude the rest
     new webpack.IgnorePlugin(/locale/, /moment$/)
   ]
 };
+
+if (env === 'production') {
+  config.plugins.push(
+    new webpack.optimize.UglifyJsPlugin({
+      compressor: {
+        pure_getters: true,
+        unsafe: true,
+        unsafe_comps: true,
+        warnings: false
+      }
+    })
+  );
+}
+
+module.exports = config;

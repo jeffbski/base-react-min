@@ -1,5 +1,3 @@
-'use strict';
-
 import './util/polyfill'; // first import polyfills
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -34,7 +32,7 @@ function fetchDataAndRender() {
   fetchData()
     .then(resp => render(resp.data))
     .catch(err => {
-      console.error(err);
+      console.error(err); // eslint-disable-line no-console
       renderError(err);
     });
 }
