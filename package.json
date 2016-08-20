@@ -35,7 +35,7 @@
     "test": "cross-env BABEL_ENV=test karma start --single-run",
     "watch": "run-p -c watch:*",
     "watch:browser": "wait-on dist/main.js && browser-sync start --config bs-config.js",
-    "watch:css": "run-s build:css && chokidar \"style/**/*\" -c \"run-s build:css\"",
+    "watch:css": "run-s build:css && chokidar \"style/**/*\" -i \"*.flycheck.*\" -c \"run-s build:css\"",
     "watch:js": "cross-env BABEL_ENV=commonjs webpack --watch",
     "watch:karma": "cross-env BABEL_ENV=test karma start"
   },
