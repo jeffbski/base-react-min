@@ -21,7 +21,7 @@
   },
   "scripts": {
     "create-dirs": "mkdirp dist",
-    "build": "run-p -c \"build:*\"",
+    "build": "run-p -c build:*",
     "build:css": "lessc style/site.less | postcss -c postcss.json | ntee dist/site.css | cleancss | ntee dist/site.min.css | ngzip > dist/site.min.css.gz",
     "build:js": "cross-env BABEL_ENV=commonjs webpack  && uglifyjs dist/main.js -c warnings=false -m | ntee dist/main.min.js | ngzip > dist/main.min.js.gz",
     "lint": "eslint --ext .js --ext .jsx src",
@@ -33,7 +33,7 @@
     "prod-build": "npm run build --production",
     "start": "run-s watch",
     "test": "cross-env BABEL_ENV=test karma start --single-run",
-    "watch": "run-p -c \"watch:*\"",
+    "watch": "run-p -c watch:*",
     "watch:browser": "wait-on dist/main.js && browser-sync start --config bs-config.js",
     "watch:css": "run-s build:css && chokidar \"style/**/*\" -c \"run-s build:css\"",
     "watch:js": "cross-env BABEL_ENV=commonjs webpack --watch",
@@ -97,7 +97,6 @@
     "postcss-cli": "^2.5.2",
     "react-addons-test-utils": "^15.3.0",
     "rimraf": "^2.5.4",
-    "run-all": "^1.0.1",
     "uglify-js": "^2.7.3",
     "wait-on": "^1.5.2",
     "webpack": "^1.13.2"
