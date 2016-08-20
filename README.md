@@ -13,14 +13,15 @@ Features:
  - **browser-sync** for auto reloading in browser on change
  - **ES6/7 and JSX compiling** to ES5 with **babeljs**
  - **eslint** for linting
- - **browserify** (w/babelify) for bundling javascript for the browser
- - **watchify** to automatically rebuild on changes
+ - **webpack** for bundling javascript for the browser
+ - **chokidar** to automatically rebuild on changes
  - **uglify** for js minification
  - **less** CSS style compiler
  - **autoprefixer** for automatically adding css prefixes
  - **cleancss** for css minification
  - **karma** for js unit testing in browsers or phantomjs
  - **phantomjs** for headless testing in browser
+ - **npm-run-all** for simple parallel/serial npm script exec
  - **axios** for promise based HTTP client
  - **cross platform** - runs on Mac OS X, linux, unix, windows
 
@@ -37,22 +38,21 @@ Structure:
  - src/util/karma-setup.js - common karma setup
  - style/site.less - CSS styles used by site, edit or import into
  - .babelrc - babel configuration
+ - .eslintrc - eslint configuration
  - bs-config.js - browser-sync config, set browser to launch
  - karma.conf.js - karma test configuration
  - postcss.json - postcss config controls autoprefixer
+ - webpack.config.js - webpack configuration
  - dist/ - contains compiled and minified css and js
-
-Notes:
-
- - My default browser for browser-sync is `Google Chrome`, if you want to use a different browser like `Google Chrome Canary` or `Mozilla Firefox` edit `bs-config.js`
 
 
 ## Installation
 
-Requires node.js/iojs >= 0.10
+Tested with node.js >= 4.4.0
+
 
 ```bash
-npm install ## install dependent node modules
+npm install ## install all dependencies
 ```
 
 ## Usage
@@ -61,11 +61,8 @@ TODO: update with your usage
 
 Primary use - auto build and reload browser
 ```bash
-npm run watch # build and watch, auto recompile and load changes
 # use control-c to exit the autobuild watch
-
-# start is also aliased to run watch
-npm start # executes npm run watch
+npm start # build and watch, auto recompile and load changes
 ```
 
 Build only
