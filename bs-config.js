@@ -2,8 +2,10 @@
 // http://www.browsersync.io/docs/options/
 
 module.exports = {
-  browser: ['google chrome'],
+  // uses default browser or you can specify your own choice
+  // browser: ['google chrome'],
   // browser: ['google chrome canary'],
+  // browser: ['firefox'],
   ghostMode: false,
   port: 3005,
   // proxy: 'localhost:8005',
