@@ -13,9 +13,13 @@ module.exports = {
   reloadDebounce: 500,
   files: [
     'public/*.html',
-    'public/*.json',
-    'dist/main.js',
-    'dist/site.min.css'],
+    'public/*.json'
+    // since we are using browser-sync-webpack-plugin
+    // and webpack is now building js and css, it will trigger reload
+    // for the following files
+    // 'dist/main.js',
+    // 'dist/style.min.css'
+  ],
   server: {
     baseDir: './public',
     routes: {

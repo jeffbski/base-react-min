@@ -14,7 +14,6 @@ Features:
  - **ES6/7 and JSX compiling** to ES5 with **babeljs**
  - **eslint** for linting
  - **webpack** for bundling javascript for the browser
- - **chokidar** to automatically rebuild on changes
  - **uglify** for js minification
  - **less** CSS style compiler
  - **autoprefixer** for automatically adding css prefixes
