@@ -104,7 +104,7 @@
     "axios": "^0.13.1",
     "core-js": "^2.4.1",
     "react": "^15.3.0",
-    "react-dom": "^15.3.0"
+    "react-dom": "^16.0.1"
   },
   "keywords": []
 }
